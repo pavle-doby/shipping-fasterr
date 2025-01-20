@@ -21,7 +21,7 @@ export function HomeScreen() {
   });
 
   return (
-    <YStack f={1} jc="center" ai="center" gap="$8" p="$4" bg="$background">
+    <YStack f={1} jc="center" ai="center" gap="$2" p="$4" bg="$background">
       <XStack
         pos="absolute"
         w="100%"
@@ -51,6 +51,11 @@ export function HomeScreen() {
         </Paragraph>
         <Separator />
       </YStack>
+
+      {/* TODO: fix this type // Let's hope adding this to a theme will fix it */}
+      <Button paddingHorizontal="$6" paddingVertical="$4" backgroundColor="$accent">
+        My Button
+      </Button>
 
       <Button {...linkProps}>Link to user</Button>
 
@@ -85,7 +90,7 @@ function SheetDemo() {
       >
         <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
         <Sheet.Handle bg="$gray8" />
-        <Sheet.Frame ai="center" jc="center" gap="$10" bg="$color2">
+        <Sheet.Frame ai="center" jc="center" gap="$2">
           <XStack gap="$2">
             <Paragraph ta="center">Made by</Paragraph>
             <Anchor col="$blue10" href="https://twitter.com/natebirdman" target="_blank">
