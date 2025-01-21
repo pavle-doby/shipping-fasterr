@@ -10,7 +10,7 @@ import {
   XStack,
   YStack,
 } from '@my/ui';
-import { ChevronDown, ChevronUp, X } from '@tamagui/lucide-icons';
+import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
 import { useState } from 'react';
 import { Platform } from 'react-native';
 import { useLink } from 'solito/navigation';
@@ -39,10 +39,8 @@ export function HomeScreen() {
       </XStack>
 
       <YStack gap="$4">
-        <H1 ta="center" col="$color12">
-          Welcome to Tamagui.
-        </H1>
-        <Paragraph col="$color10" ta="center">
+        <H1 ta="center">Welcome to Tamagui.</H1>
+        <Paragraph ta="center">
           Here's a basic starter to show navigating from one screen to another.
         </Paragraph>
         <Separator />
@@ -52,9 +50,24 @@ export function HomeScreen() {
         <Separator />
       </YStack>
 
-      {/* TODO: fix this type // Let's hope adding this to a theme will fix it */}
-      <Button paddingHorizontal="$6" paddingVertical="$4" backgroundColor="$accent">
-        My Button
+      <Button
+        backgroundColor="$info"
+        color="$info-contrast"
+        paddingHorizontal="$8"
+        paddingVertical="$4"
+        hoverStyle={{ bg: '$info-700', borderColor: '$info-700' }}
+        pressStyle={{ bg: '$info-500' }}
+      >
+        Prodji sa mnom kroz
+      </Button>
+
+      <Button
+        backgroundColor="$error"
+        color="$error-contrast"
+        hoverStyle={{ bg: '$error-700', borderColor: '$error-700' }}
+        pressStyle={{ bg: '$error-500' }}
+      >
+        Crveno
       </Button>
 
       <Button {...linkProps}>Link to user</Button>
@@ -93,11 +106,11 @@ function SheetDemo() {
         <Sheet.Frame ai="center" jc="center" gap="$2">
           <XStack gap="$2">
             <Paragraph ta="center">Made by</Paragraph>
-            <Anchor col="$blue10" href="https://twitter.com/natebirdman" target="_blank">
+            <Anchor col="$info" href="https://twitter.com/natebirdman" target="_blank">
               @natebirdman,
             </Anchor>
             <Anchor
-              color="$purple10"
+              color="$accent"
               href="https://github.com/tamagui/tamagui"
               target="_blank"
               rel="noreferrer"

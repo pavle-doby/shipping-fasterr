@@ -1,10 +1,9 @@
 import { createTamagui } from 'tamagui';
 import { createInterFont } from '@tamagui/font-inter';
 import { shorthands } from '@tamagui/shorthands';
-import { themes } from '@tamagui/config/v3';
-
 import { animations } from '@my/ui/src/animations';
 import { CUSTOM_TOKENS } from './tokens';
+import { DARK_THEME, LIGHT_THEME } from './theme';
 
 const headingFont = createInterFont({
   size: {
@@ -69,7 +68,10 @@ export const config = createTamagui({
   settings: {
     allowedStyleValues: 'somewhat-strict',
   },
-  themes,
+  themes: {
+    light: LIGHT_THEME,
+    dark: DARK_THEME,
+  },
   tokens: CUSTOM_TOKENS,
   media: {
     xs: { maxWidth: 660 },

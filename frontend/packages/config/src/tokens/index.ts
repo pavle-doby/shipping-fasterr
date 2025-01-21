@@ -1,5 +1,5 @@
 import { createTokens } from 'tamagui';
-import { colors } from './colors';
+import { COLOR_TOKENS_LIGHT } from './colors';
 import { RADIUS_TOKENS } from './radius';
 import { SIZE_TOKENS } from './size';
 import { Z_INDEX } from './zIndex';
@@ -11,13 +11,10 @@ import { Z_INDEX } from './zIndex';
  */
 export const CUSTOM_TOKENS = createTokens({
   color: {
-    // Returning flat object values
-    ...Object.values(colors)
-      .map((color) => color)
-      .reduce((curr, val) => ({ ...curr, ...val }), {}),
+    ...COLOR_TOKENS_LIGHT,
 
-    background: colors.base.base,
-    color: colors.base.baseContrast,
+    background: COLOR_TOKENS_LIGHT['base'],
+    color: COLOR_TOKENS_LIGHT['base-contrast'],
   },
   radius: {
     ...RADIUS_TOKENS,
@@ -25,7 +22,7 @@ export const CUSTOM_TOKENS = createTokens({
   },
   size: {
     ...SIZE_TOKENS,
-    true: SIZE_TOKENS[10], // 40px
+    true: 'auto',
   },
   space: {
     ...SIZE_TOKENS,
