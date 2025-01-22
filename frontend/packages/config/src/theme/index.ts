@@ -2,17 +2,25 @@ import { COLOR_TOKENS_DARK, COLOR_TOKENS_LIGHT, ColorTokens } from '../tokens/co
 
 // #region Helpers
 
-function getThemeValues(colorTokens: ColorTokens, theme: Record<string, keyof ColorTokens>) {
-  const themeValues = {};
+function getThemeValues<T extends Record<string, string>>(
+  colorTokens: ColorTokens,
+  theme: T
+): T {
+  const themeValues: Record<string, string> = {};
 
   Object.entries(theme).forEach(([key, value]) => {
     themeValues[key] = colorTokens[value];
   });
 
-  return themeValues;
+  return themeValues as T;
 }
 
 // #endregion
+
+type BaseTheme = Record<keyof typeof BASE_THEME, string>;
+type CustomTheme = Record<keyof typeof COLOR_TOKENS_LIGHT, string>;
+
+type FullTheme = BaseTheme & CustomTheme;
 
 /**
  * Dictionary of base theme values.
@@ -20,7 +28,7 @@ function getThemeValues(colorTokens: ColorTokens, theme: Record<string, keyof Co
  * @key - theme key witch value is used in tamagui components by default.
  * @value - color token key.
  */
-const BASE_THEME: Record<string, keyof ColorTokens> = {
+const BASE_THEME = {
   background: 'base',
   backgroundHover: 'base-700',
   backgroundPress: 'base-500',
@@ -43,16 +51,14 @@ const BASE_THEME: Record<string, keyof ColorTokens> = {
   shadowColorHover: 'neutral',
   shadowColorPress: 'neutral-700',
   shadowColorFocus: 'neutral-700',
-};
+} as const;
 
-export const LIGHT_THEME = {
-  colorTransparent: 'rgba(255,255,255,0)',
+export const LIGHT_THEME: FullTheme = {
   ...getThemeValues(COLOR_TOKENS_LIGHT, BASE_THEME),
   ...COLOR_TOKENS_LIGHT,
 };
 
-export const DARK_THEME = {
-  colorTransparent: 'rgba(0,0,0,0)',
+export const DARK_THEME: FullTheme = {
   ...getThemeValues(COLOR_TOKENS_DARK, BASE_THEME),
   ...COLOR_TOKENS_DARK,
 };

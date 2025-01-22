@@ -1,48 +1,75 @@
-import { useEffect } from 'react'
-import { useColorScheme } from 'react-native'
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
-import { useFonts } from 'expo-font'
-import { SplashScreen, Stack } from 'expo-router'
-import { Provider } from 'app/provider'
-import { NativeToast } from '@my/ui/src/NativeToast'
+import { useEffect, useState } from 'react';
+import { Appearance, useColorScheme } from 'react-native';
+import {
+  Theme as NavTheme,
+  ThemeProvider as NavigationThemeProvider,
+} from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { SplashScreen, Stack } from 'expo-router';
+import { Provider } from 'app/provider';
+import { NativeToast } from '@my/ui/src/NativeToast';
+import { DARK_THEME, LIGHT_THEME } from '@my/config/src/theme/index';
+import { Theme } from '@my/ui';
 
 export const unstable_settings = {
   // Ensure that reloading on `/user` keeps a back button present.
   initialRouteName: 'Home',
-}
+};
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [interLoaded, interError] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
-  })
+  });
 
   useEffect(() => {
     if (interLoaded || interError) {
       // Hide the splash screen after the fonts have loaded (or an error was returned) and the UI is ready.
-      SplashScreen.hideAsync()
+      SplashScreen.hideAsync();
     }
-  }, [interLoaded, interError])
+  }, [interLoaded, interError]);
 
   if (!interLoaded && !interError) {
-    return null
+    return null;
   }
 
-  return <RootLayoutNav />
+  return <RootLayout />;
 }
 
-function RootLayoutNav() {
-  const colorScheme = useColorScheme()
+function RootLayout() {
+  const colorScheme = useColorScheme();
+
+  const [themeName, setThemeName] = useState(colorScheme || 'dark');
+
+  Appearance.addChangeListener(({ colorScheme }) => {
+    setThemeName(colorScheme || 'dark');
+  });
+
+  const theme = themeName === 'dark' ? DARK_THEME : LIGHT_THEME;
+
+  const navTheme: NavTheme = {
+    dark: colorScheme === 'dark',
+    colors: {
+      primary: theme.primary,
+      background: theme.background,
+      card: theme.background,
+      text: theme.color,
+      border: theme.borderColor,
+      notification: theme.info,
+    },
+  };
 
   return (
     <Provider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
-        <NativeToast />
-      </ThemeProvider>
+      <Theme name={themeName}>
+        <NavigationThemeProvider value={navTheme}>
+          <Stack />
+          <NativeToast />
+        </NavigationThemeProvider>
+      </Theme>
     </Provider>
-  )
+  );
 }

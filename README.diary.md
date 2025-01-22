@@ -17,4 +17,10 @@ Monorepo template for creating and shipping your startup faster than ever!
 
 - [x] Use app router for next.js (delete pages router stuff)
 - [x] Setup tokens for tamagui that are based on [tailwindcss](https://tailwindcss.com/)
-- [ ] Setup custom themes (light and dark?) for tamagui
+- [x] Setup custom themes (light and dark?) for tamagui with toggle on web and native
+
+### Start building your dream app
+
+- [ ] Add your own pages
+- [ ] Add your own components
+- [ ] Add your own API routes

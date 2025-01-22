@@ -6,7 +6,7 @@ export const SwitchThemeButton = () => {
   const themeSetting = useThemeSetting();
   const [theme] = useRootTheme();
 
-  const [clientTheme, setClientTheme] = useState<string | undefined>('light');
+  const [clientTheme, setClientTheme] = useState<string | undefined>('dark');
 
   useIsomorphicLayoutEffect(() => {
     setClientTheme(themeSetting.forcedTheme || themeSetting.current || theme);
@@ -14,14 +14,13 @@ export const SwitchThemeButton = () => {
 
   return (
     <Button
-      bg="transparent"
-      color="$primary"
-      borderColor={'$primary'}
+      bg="$primary"
+      color="$primary-contrast"
       hoverStyle={{
-        borderColor: '$primary',
+        bg: '$primary-500',
       }}
       pressStyle={{
-        borderColor: '$primary',
+        bg: '$primary-700',
       }}
       onPress={themeSetting.toggle}
     >

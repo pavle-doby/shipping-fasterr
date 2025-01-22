@@ -11,6 +11,7 @@ import {
   YStack,
 } from '@my/ui';
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
+import { themeSettingNative } from 'app/utils/themeSettingNative.native';
 import { useState } from 'react';
 import { Platform } from 'react-native';
 import { useLink } from 'solito/navigation';
@@ -31,10 +32,15 @@ export function HomeScreen() {
         fw="wrap"
         $sm={{ pos: 'relative', t: 0 }}
       >
-        {Platform.OS === 'web' && (
-          <>
-            <SwitchThemeButton />
-          </>
+        {Platform.OS === 'web' && <SwitchThemeButton />}
+        {Platform.OS !== 'web' && (
+          <Button
+            bg={'$primary'}
+            color={'$primary-contrast'}
+            onPress={() => themeSettingNative.toggle()}
+          >
+            Toggle Theme
+          </Button>
         )}
       </XStack>
 
@@ -101,7 +107,11 @@ function SheetDemo() {
         onPositionChange={setPosition}
         dismissOnSnapToBottom
       >
-        <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
+        <Sheet.Overlay
+          animation="lazy"
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+        />
         <Sheet.Handle bg="$gray8" />
         <Sheet.Frame ai="center" jc="center" gap="$2">
           <XStack gap="$2">
