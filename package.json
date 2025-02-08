@@ -1,9 +1,10 @@
 {
-  "name": "frontend",
+  "name": "shipping-faster",
   "private": true,
   "workspaces": [
     "./apps/*",
-    "./packages/*"
+    "./packages/*",
+    "./services"
   ],
   "scripts": {
     "native": "cd apps/expo && yarn start",
@@ -13,8 +14,10 @@
     "web:extract": "DISABLE_EXTRACTION=false yarn workspace next-app dev",
     "web:prod": "yarn workspace next-app build",
     "web:prod:serve": "yarn workspace next-app serve",
+    "service": "cd services && yarn dev",
+    "service:build": "cd services && yarn build",
     "postinstall": "yarn check-tamagui && yarn build",
-    "build": "yarn workspaces foreach --all --exclude next-app run build",
+    "build": "yarn workspaces foreach --all --exclude next-app --exclude express-service run build",
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest react-native-web-lite@latest",
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
     "check-tamagui": "tamagui check",

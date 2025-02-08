@@ -19,6 +19,14 @@ Monorepo template for creating and shipping your startup faster than ever!
 - [x] Setup tokens for tamagui that are based on [tailwindcss](https://tailwindcss.com/)
 - [x] Setup custom themes (light and dark?) for tamagui with toggle on web and native
 
+### Setup backend project
+
+- [x] Switch from hono to express because of bigger community and better AI support
+- [x] Create true monorepo
+- [x] Add simple routes for testing
+- [ ] Setup basic packages and structure
+- [ ] Add authentication
+
 ### Start building your dream app
 
 - [ ] Add your own pages

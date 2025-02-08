@@ -1,0 +1,26 @@
+{
+  "version": "0.0.0",
+  "name": "express-service",
+  "private": true,
+  "main": "index.js",
+  "description": "Backend service for Shipping Fasterr",
+  "author": "Pavle",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.12.0",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
