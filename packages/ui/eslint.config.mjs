@@ -12,8 +12,10 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
-      semi: ['error', 'always'],
       'react/react-in-jsx-scope': 'off',
+      'react/no-unescaped-entities': 'off',
+      semi: ['error', 'always'],
+      'no-var': 'error',
     },
   },
 ];
