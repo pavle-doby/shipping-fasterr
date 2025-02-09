@@ -1238,97 +1238,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:^1.9.3":
-  version: 1.9.4
-  resolution: "@biomejs/biome@npm:1.9.4"
-  dependencies:
-    "@biomejs/cli-darwin-arm64": "npm:1.9.4"
-    "@biomejs/cli-darwin-x64": "npm:1.9.4"
-    "@biomejs/cli-linux-arm64": "npm:1.9.4"
-    "@biomejs/cli-linux-arm64-musl": "npm:1.9.4"
-    "@biomejs/cli-linux-x64": "npm:1.9.4"
-    "@biomejs/cli-linux-x64-musl": "npm:1.9.4"
-    "@biomejs/cli-win32-arm64": "npm:1.9.4"
-    "@biomejs/cli-win32-x64": "npm:1.9.4"
-  dependenciesMeta:
-    "@biomejs/cli-darwin-arm64":
-      optional: true
-    "@biomejs/cli-darwin-x64":
-      optional: true
-    "@biomejs/cli-linux-arm64":
-      optional: true
-    "@biomejs/cli-linux-arm64-musl":
-      optional: true
-    "@biomejs/cli-linux-x64":
-      optional: true
-    "@biomejs/cli-linux-x64-musl":
-      optional: true
-    "@biomejs/cli-win32-arm64":
-      optional: true
-    "@biomejs/cli-win32-x64":
-      optional: true
-  bin:
-    biome: bin/biome
-  checksum: 10/bd8ff8fb4dc0581bd60a9b9ac28d0cd03ba17c6a1de2ab6228b7fda582079594ceee774f47e41aac2fc6d35de1637def2e32ef2e58fa24e22d1b24ef9ee5cefa
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-darwin-arm64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-darwin-arm64@npm:1.9.4"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-darwin-x64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-darwin-x64@npm:1.9.4"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-arm64-musl@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-linux-arm64-musl@npm:1.9.4"
-  conditions: os=linux & cpu=arm64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-arm64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-linux-arm64@npm:1.9.4"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-x64-musl@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-linux-x64-musl@npm:1.9.4"
-  conditions: os=linux & cpu=x64 & libc=musl
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-linux-x64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-linux-x64@npm:1.9.4"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-win32-arm64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-win32-arm64@npm:1.9.4"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@biomejs/cli-win32-x64@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@biomejs/cli-win32-x64@npm:1.9.4"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -1810,7 +1719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.20.0":
+"@eslint/js@npm:9.20.0, @eslint/js@npm:^9.20.0":
   version: 9.20.0
   resolution: "@eslint/js@npm:9.20.0"
   checksum: 10/2304cd725700046ba611f06bf9cd0941db7e02e0d602d8fd9e4734c13067699954597b9a3a2b048ce02eb0550373669d2ab7be6edaf6abf7b67eb19d1276b57b
@@ -2743,10 +2652,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@my/ui@workspace:packages/ui"
   dependencies:
+    "@eslint/js": "npm:^9.20.0"
     "@my/config": "npm:0.0.1"
     "@tamagui/build": "npm:^1.122.0"
     "@tamagui/toast": "npm:^1.122.0"
+    eslint: "npm:^9.20.0"
+    eslint-plugin-react: "npm:^7.37.4"
+    globals: "npm:^15.14.0"
     tamagui: "npm:^1.122.0"
+    typescript-eslint: "npm:^8.23.0"
   languageName: unknown
   linkType: soft
 
@@ -6283,7 +6197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
+"@typescript-eslint/eslint-plugin@npm:8.23.0, @typescript-eslint/eslint-plugin@npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
   version: 8.23.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.23.0"
   dependencies:
@@ -6304,7 +6218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
+"@typescript-eslint/parser@npm:8.23.0, @typescript-eslint/parser@npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
   version: 8.23.0
   resolution: "@typescript-eslint/parser@npm:8.23.0"
   dependencies:
@@ -7116,6 +7030,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:packages/app"
   dependencies:
+    "@eslint/js": "npm:^9.20.0"
     "@my/ui": "npm:0.0.1"
     "@react-navigation/native": "npm:^6.1.17"
     "@tamagui/animations-react-native": "npm:^1.122.0"
@@ -7127,10 +7042,14 @@ __metadata:
     "@types/react": "npm:^18.3.3"
     "@types/react-native": "npm:^0.73.0"
     burnt: "npm:^0.12.2"
+    eslint: "npm:^9.20.0"
+    eslint-plugin-react: "npm:^7.37.4"
     expo-constants: "npm:~16.0.2"
     expo-linking: "npm:~6.3.1"
+    globals: "npm:^15.14.0"
     react-native-safe-area-context: "npm:4.10.4"
     solito: "npm:^4.2.2"
+    typescript-eslint: "npm:^8.23.0"
   languageName: unknown
   linkType: soft
 
@@ -10253,7 +10172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.33.2":
+"eslint-plugin-react@npm:^7.33.2, eslint-plugin-react@npm:^7.37.4":
   version: 7.37.4
   resolution: "eslint-plugin-react@npm:7.37.4"
   dependencies:
@@ -10305,7 +10224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.3.0":
+"eslint@npm:^9.20.0, eslint@npm:^9.3.0":
   version: 9.20.0
   resolution: "eslint@npm:9.20.0"
   dependencies:
@@ -11684,6 +11603,13 @@ __metadata:
   version: 14.0.0
   resolution: "globals@npm:14.0.0"
   checksum: 10/03939c8af95c6df5014b137cac83aa909090c3a3985caef06ee9a5a669790877af8698ab38007e4c0186873adc14c0b13764acc754b16a754c216cc56aa5f021
+  languageName: node
+  linkType: hard
+
+"globals@npm:^15.14.0":
+  version: 15.14.0
+  resolution: "globals@npm:15.14.0"
+  checksum: 10/e35ffbdbc024d6381efca906f67211a7bbf935db2af8c14a65155785479e28b3e475950e5933bb6b296eed54b6dcd924e25b26dbc8579b1bde9d5d25916e1c5f
   languageName: node
   linkType: hard
 
@@ -14600,24 +14526,6 @@ __metadata:
   checksum: 10/16fd79c28645759505914561e249b9a1f5fe3362279ad95487a4501e4467abeb714fd35b95307326b8fd03f3c7719065ef11a6f97b7285d7888306d1bd2232ba
   languageName: node
   linkType: hard
-
-"monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "monorepo@workspace:."
-  dependencies:
-    "@babel/runtime": "npm:^7.24.6"
-    "@biomejs/biome": "npm:^1.9.3"
-    "@tamagui/cli": "npm:^1.122.0"
-    check-dependency-version-consistency: "npm:^4.1.0"
-    eslint: "npm:^9.3.0"
-    husky: "npm:^9.1.6"
-    node-gyp: "npm:^10.1.0"
-    prettier: "npm:^3.3.3"
-    turbo: "npm:^1.13.4"
-    typescript: "npm:^5.6.2"
-    vitest: "npm:^2.1.1"
-  languageName: unknown
-  linkType: soft
 
 "mri@npm:1.2.0":
   version: 1.2.0
@@ -17551,6 +17459,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shipping-faster@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "shipping-faster@workspace:."
+  dependencies:
+    "@babel/runtime": "npm:^7.24.6"
+    "@tamagui/cli": "npm:^1.122.0"
+    check-dependency-version-consistency: "npm:^4.1.0"
+    eslint: "npm:^9.3.0"
+    husky: "npm:^9.1.6"
+    node-gyp: "npm:^10.1.0"
+    prettier: "npm:^3.3.3"
+    turbo: "npm:^1.13.4"
+    typescript: "npm:^5.6.2"
+    vitest: "npm:^2.1.1"
+  languageName: unknown
+  linkType: soft
+
 "side-channel-list@npm:^1.0.0":
   version: 1.0.0
   resolution: "side-channel-list@npm:1.0.0"
@@ -19036,6 +18961,20 @@ __metadata:
     typed-array-buffer: "npm:^1.0.3"
     typed-array-byte-offset: "npm:^1.0.4"
   checksum: 10/df1a35ccb86bd30280310d628d6def7a9a78fe3c787fe63b67559473ffe5cb0d3b6351f38a1105cd9f15c6d3707420ca60720bfffe41f79e376071f6a9c8104f
+  languageName: node
+  linkType: hard
+
+"typescript-eslint@npm:^8.23.0":
+  version: 8.23.0
+  resolution: "typescript-eslint@npm:8.23.0"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:8.23.0"
+    "@typescript-eslint/parser": "npm:8.23.0"
+    "@typescript-eslint/utils": "npm:8.23.0"
+  peerDependencies:
+    eslint: ^8.57.0 || ^9.0.0
+    typescript: ">=4.8.4 <5.8.0"
+  checksum: 10/c7a8b95129e944dd54a3f9312c14fbd9f589d863c30f45c8f3cf6001bb98398cf6ff41b5d51aa84d413853021d35ae703e8d0c067b409afa5acdc6bfc8bb1982
   languageName: node
   linkType: hard
 
