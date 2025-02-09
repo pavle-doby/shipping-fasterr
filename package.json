@@ -51,11 +51,5 @@
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3"
-  },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx,css,md}": [
-      "eslint --fix --cache",
-      "prettier --write"
-    ]
   }
 }
