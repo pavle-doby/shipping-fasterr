@@ -2,6 +2,7 @@ import { config } from '@my/config';
 
 export type Conf = typeof config;
 
-declare module 'tamagui' {
-  type TamaguiCustomConfig = Conf;
+declare module '@my/ui' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface TamaguiCustomConfig extends Conf {}
 }

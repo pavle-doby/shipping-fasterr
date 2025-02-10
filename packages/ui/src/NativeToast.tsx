@@ -1,5 +1,5 @@
 import { Toast, useToastState } from '@tamagui/toast';
-import { YStack } from 'tamagui';
+import { YStack } from '@my/ui';
 
 export const NativeToast = () => {
   const currentToast = useToastState();
@@ -23,13 +23,11 @@ export const NativeToast = () => {
       borderColor={'$color'}
       borderWidth={'$px'}
     >
-      <YStack
-        py="$1.5"
-        px="$2"
-
-      >
+      <YStack py="$2" px="$2">
         <Toast.Title lh="$1">{currentToast.title}</Toast.Title>
-        {!!currentToast.message && <Toast.Description>{currentToast.message}</Toast.Description>}
+        {!!currentToast.message && (
+          <Toast.Description>{currentToast.message}</Toast.Description>
+        )}
       </YStack>
     </Toast>
   );
