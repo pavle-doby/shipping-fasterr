@@ -11,6 +11,9 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: ['node_modules/*', 'dist/*'],
+  },
   ...compat.extends('eslint-config-expo'),
   {
     rules: {

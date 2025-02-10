@@ -27,9 +27,9 @@ Monorepo template for creating and shipping your startup faster than ever!
 - [x] Setup eslint for Expo app
 - [x] Run `eslint --fix .` on for `expo`
 - [ ] Run `eslint --fix .` on for `next`
-- [ ] Run `eslint --fix .` on for `packages/app`
+- [x] Run `eslint --fix .` on for `packages/app`
 - [ ] Run `eslint --fix .` on for `packages/config`
-- [ ] Run `eslint --fix .` on for `packages/ui`
+- [x] Run `eslint --fix .` on for `packages/ui`
 - [ ] Run `prettier --write .` on for `expo`
 - [ ] Run `prettier --write .` on for `next`
 - [ ] Run `prettier --write .` on for `packages/app`
