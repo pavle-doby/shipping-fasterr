@@ -8,7 +8,7 @@ import '@tamagui/polyfill-dev';
 import type { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { useServerInsertedHTML } from 'next/navigation';
-import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme';
+import { NextThemeProvider, useRootTheme, ColorScheme } from '@tamagui/next-theme';
 import { config } from '@my/ui';
 import { Provider } from 'app/provider';
 
@@ -16,11 +16,15 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useRootTheme();
 
   useServerInsertedHTML(() => {
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const rnwStyle = StyleSheet.getSheet();
     return (
       <>
-        <style dangerouslySetInnerHTML={{ __html: rnwStyle.textContent }} id={rnwStyle.id} />
+        <style
+          dangerouslySetInnerHTML={{ __html: rnwStyle.textContent }}
+          id={rnwStyle.id}
+        />
 
         <style
           dangerouslySetInnerHTML={{
@@ -47,6 +51,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
           }}
         />
 
+        {/* eslint-disable-next-line react/no-unknown-property */}
         <style jsx global>{`
           html {
             font-family: 'Inter';
@@ -59,10 +64,8 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
   return (
     <NextThemeProvider
       skipNextHead
-      // change default theme (system) here:
-      // defaultTheme="dark"
       onChangeTheme={(next) => {
-        setTheme(next as any);
+        setTheme(next as ColorScheme);
       }}
     >
       <Provider disableRootThemeClass defaultTheme={theme}>

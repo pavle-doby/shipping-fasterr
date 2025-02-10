@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
-const { withTamagui } = require('@tamagui/next-plugin')
-const { join } = require('node:path')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { withTamagui } = require('@tamagui/next-plugin');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { join } = require('node:path');
 
 const boolVals = {
   true: true,
   false: false,
-}
+};
 
 const disableExtraction =
-  boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development'
+  boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development';
 
 const plugins = [
   withTamagui({
@@ -21,12 +23,18 @@ const plugins = [
     disableExtraction,
     shouldExtract: (path) => {
       if (path.includes(join('packages', 'app'))) {
-        return true
+        return true;
       }
     },
-    excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
+    excludeReactNativeWebExports: [
+      'Switch',
+      'ProgressBar',
+      'Picker',
+      'CheckBox',
+      'Touchable',
+    ],
   }),
-]
+];
 
 module.exports = () => {
   /** @type {import('next').NextConfig} */
@@ -50,14 +58,14 @@ module.exports = () => {
     experimental: {
       scrollRestoration: true,
     },
-  }
+  };
 
   for (const plugin of plugins) {
     config = {
       ...config,
       ...plugin(config),
-    }
+    };
   }
 
-  return config
-}
+  return config;
+};
