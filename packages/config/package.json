@@ -23,6 +23,10 @@
     "tamagui": "^1.122.0"
   },
   "devDependencies": {
-    "@tamagui/build": "^1.122.0"
+    "@eslint/js": "^9.20.0",
+    "@tamagui/build": "^1.122.0",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.24.0"
   }
 }
