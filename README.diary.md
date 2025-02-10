@@ -19,6 +19,9 @@ Monorepo template for creating and shipping your startup faster than ever!
 - [x] Setup tokens for tamagui that are based on [tailwindcss](https://tailwindcss.com/)
 - [x] Setup custom themes (light and dark?) for tamagui with toggle on web and native
 - [x] Setup eslint and prettier
+- [x] Setup eslint for Next app
+- [ ] Setup eslint Expo app
+- [ ] Setup Expo App.json
 
 ### Setup backend project
 
