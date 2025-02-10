@@ -13,6 +13,10 @@ Monorepo template for creating and shipping your startup faster than ever!
 - [x] Add backend folder with simple [Hono](https://hono.dev/) server
 - [x] Add frontend (universal) folder using `npm create tamagui@latest` more info [tamagui](https://tamagui.dev/)
 
+### Setup monorepo
+
+- [ ] Move packages (`eslint`, `prettier`, ...) from `dependencies` to `devDependencies`
+
 ### Setup frontend project
 
 - [x] Use app router for next.js (delete pages router stuff)
@@ -20,7 +24,9 @@ Monorepo template for creating and shipping your startup faster than ever!
 - [x] Setup custom themes (light and dark?) for tamagui with toggle on web and native
 - [x] Setup eslint and prettier
 - [x] Setup eslint for Next app
-- [ ] Setup eslint Expo app
+- [x] Setup eslint for Expo app
+- [ ] Run eslint --fix on all files
+- [ ] Run prettier --write on all files
 - [ ] Setup Expo App.json
 
 ### Setup backend project

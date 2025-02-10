@@ -8,7 +8,8 @@
     "android": "npx expo run:android",
     "ios": "yarn fix-xcode-env && npx expo run:ios",
     "eject": "npx expo eject",
-    "fix-xcode-env": "node scripts/fix-xcode-env.mjs"
+    "fix-xcode-env": "node scripts/fix-xcode-env.mjs",
+    "lint": "yarn dlx eslint ."
   },
   "dependencies": {
     "@babel/runtime": "^7.24.6",
@@ -40,6 +41,8 @@
     "@babel/core": "^7.24.6",
     "@expo/metro-config": "~0.18.4",
     "@tamagui/babel-plugin": "^1.122.0",
+    "eslint": "^8.57.0",
+    "eslint-config-expo": "~7.1.2",
     "metro-minify-terser": "^0.80.9",
     "typescript": "^5.6.2"
   },
@@ -50,5 +53,11 @@
   "overrides": {
     "metro": "0.80.9",
     "metro-resolver": "0.80.9"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,css,md}": [
+      "eslint --fix --cache",
+      "prettier --write"
+    ]
   }
 }
