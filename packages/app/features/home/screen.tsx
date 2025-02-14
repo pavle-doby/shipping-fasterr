@@ -1,28 +1,35 @@
 import {
   Anchor,
   Button,
-  H1,
   Paragraph,
   Separator,
   Sheet,
   useToastController,
   SwitchThemeButton,
+  SwitchThemeButtonNative,
   XStack,
   YStack,
+  SizableText,
 } from '@my/ui';
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
-import { themeSettingNative } from 'app/utils/themeSettingNative.native';
 import { useState } from 'react';
 import { Platform } from 'react-native';
 import { useLink } from 'solito/navigation';
 
 export function HomeScreen() {
   const linkProps = useLink({
-    href: `/user/nate`,
+    href: `/user/pavle`,
   });
 
   return (
-    <YStack f={1} jc="center" ai="center" gap="$2" p="$4" bg="$background">
+    <YStack
+      flex={1}
+      justifyContent="center"
+      alignItems="center"
+      gap="$2"
+      p="$4"
+      bg="$background"
+    >
       <XStack
         pos="absolute"
         w="100%"
@@ -33,48 +40,42 @@ export function HomeScreen() {
         $sm={{ pos: 'relative', t: 0 }}
       >
         {Platform.OS === 'web' && <SwitchThemeButton />}
-        {Platform.OS !== 'web' && (
-          <Button
-            bg={'$primary'}
-            color={'$primary-contrast'}
-            onPress={() => themeSettingNative.toggle()}
-          >
-            Toggle Theme
-          </Button>
-        )}
+        {Platform.OS !== 'web' && <SwitchThemeButtonNative />}
       </XStack>
 
       <YStack gap="$4">
-        <H1 ta="center">Welcome to Tamagui.</H1>
-        <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another.
+        <Paragraph fontWeight={'600'} ta="center">
+          Welcome to
         </Paragraph>
+        <YStack>
+          <SizableText
+            ta="center"
+            fontWeight={'700'}
+            fontSize={'$10'}
+            lineHeight={'$10'}
+            color={'$primary'}
+          >
+            Shipping
+          </SizableText>
+          <SizableText
+            ta="center"
+            fontWeight={'700'}
+            fontSize={'$10'}
+            lineHeight={'$10'}
+            color={'$accent'}
+          >
+            Fasterr
+          </SizableText>
+        </YStack>
+
+        <Paragraph ta="center">Here's you can explore navigation and themes</Paragraph>
+
         <Separator />
         <Paragraph ta="center">
           This screen uses the same code on Next.js and React Native.
         </Paragraph>
         <Separator />
       </YStack>
-
-      <Button
-        backgroundColor="$info"
-        color="$info-contrast"
-        paddingHorizontal="$8"
-        paddingVertical="$4"
-        hoverStyle={{ bg: '$info-700', borderColor: '$info-700' }}
-        pressStyle={{ bg: '$info-500' }}
-      >
-        Prodji sa mnom kroz
-      </Button>
-
-      <Button
-        backgroundColor="$error"
-        color="$error-contrast"
-        hoverStyle={{ bg: '$error-700', borderColor: '$error-700' }}
-        pressStyle={{ bg: '$error-500' }}
-      >
-        Crveno
-      </Button>
 
       <Button {...linkProps}>Link to user</Button>
 
@@ -92,11 +93,13 @@ function SheetDemo() {
   return (
     <>
       <Button
-        size="$6"
+        bg={'$secondary'}
+        color={'$secondary-contrast'}
         icon={open ? ChevronDown : ChevronUp}
-        circular
         onPress={() => setOpen((x) => !x)}
-      />
+      >
+        Sheet
+      </Button>
       <Sheet
         modal
         animation="medium"
@@ -116,12 +119,12 @@ function SheetDemo() {
         <Sheet.Frame ai="center" jc="center" gap="$2">
           <XStack gap="$2">
             <Paragraph ta="center">Made by</Paragraph>
-            <Anchor col="$info" href="https://twitter.com/natebirdman" target="_blank">
-              @natebirdman,
+            <Anchor col="$info" href="https://x.com/pavle_doby" target="_blank">
+              @pavle_doby,
             </Anchor>
             <Anchor
               color="$accent"
-              href="https://github.com/tamagui/tamagui"
+              href="https://github.com/pavle-doby/shipping-fasterr"
               target="_blank"
               rel="noreferrer"
             >

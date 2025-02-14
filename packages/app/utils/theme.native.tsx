@@ -6,7 +6,7 @@ import { Appearance } from 'react-native';
  * ! This only works on native platforms.
  * !! If you remove Appearance event listener from root `_layout.tsx`, this will not work.
  */
-export const themeSettingNative = (() => {
+export const themeNative = (() => {
   return {
     /**
      * Toggles the theme between `light` and `dark`.

@@ -24,7 +24,7 @@ export const SwitchThemeButton = () => {
       }}
       onPress={themeSetting.toggle}
     >
-      Change theme: {clientTheme}
+      Toggle Theme {`[${clientTheme}]`}
     </Button>
   );
 };
