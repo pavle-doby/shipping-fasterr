@@ -18141,9 +18141,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shipping-faster@workspace:.":
+"shipping-fasterr@workspace:.":
   version: 0.0.0-use.local
-  resolution: "shipping-faster@workspace:."
+  resolution: "shipping-fasterr@workspace:."
   dependencies:
     "@babel/runtime": "npm:^7.24.6"
     "@tamagui/cli": "npm:^1.122.0"

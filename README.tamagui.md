@@ -1,9 +1,5 @@
 # Tamagui + Solito + Next + Expo Monorepo
 
-```sh
-npm create tamagui
-```
-
 ## 🔦 About
 
 This monorepo is a starter for an Expo + Next.js + Tamagui + Solito app.

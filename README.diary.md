@@ -1,4 +1,4 @@
-# shipping-faster
+# shipping-fasterr
 
 Monorepo template for creating and shipping your startup faster than ever!
 
