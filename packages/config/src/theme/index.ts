@@ -1,11 +1,8 @@
-import { COLOR_TOKENS_DARK, COLOR_TOKENS_LIGHT, ColorTokens } from '../tokens/colors';
+import { COLOR_TOKENS_DARK, COLOR_TOKENS_LIGHT, type ColorTokens } from '../tokens/colors';
 
 // #region Helpers
 
-function getThemeValues<T extends Record<string, string>>(
-  colorTokens: ColorTokens,
-  theme: T
-): T {
+function getThemeValues<T extends Record<string, string>>(colorTokens: ColorTokens, theme: T): T {
   const themeValues: Record<string, string> = {};
 
   Object.entries(theme).forEach(([key, value]) => {
@@ -38,7 +35,7 @@ const BASE_THEME = {
   colorHover: 'base-1100',
   colorPress: 'base-contrast',
   colorFocus: 'base-1100',
-  placeholderColor: 'neutral',
+  placeholderColor: 'neutral-300',
 
   borderColor: 'base-contrast',
   borderColorHover: 'base-contrast',
@@ -56,9 +53,11 @@ const BASE_THEME = {
 export const LIGHT_THEME: FullTheme = {
   ...getThemeValues(COLOR_TOKENS_LIGHT, BASE_THEME),
   ...COLOR_TOKENS_LIGHT,
+  placeholderColor: 'neutral-900',
 };
 
 export const DARK_THEME: FullTheme = {
   ...getThemeValues(COLOR_TOKENS_DARK, BASE_THEME),
   ...COLOR_TOKENS_DARK,
+  placeholderColor: 'neutral-300',
 };

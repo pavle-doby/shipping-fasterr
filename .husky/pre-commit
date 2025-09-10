@@ -1,1 +1,2 @@
-yarn workspaces foreach --all run lint-staged
+yarn lint-staged
+echo '✔ Pre commit hook executed'

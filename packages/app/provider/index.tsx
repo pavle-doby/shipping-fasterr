@@ -9,13 +9,18 @@ import {
 } from '@my/ui';
 import { ToastViewport } from './ToastViewport';
 
-export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
+export function Provider({
+  children,
+  defaultTheme = 'dark',
+  ...rest
+}: Omit<TamaguiProviderProps, 'config'> & { defaultTheme?: string }) {
   const colorScheme = useColorScheme();
+  const theme = defaultTheme || (colorScheme === 'dark' ? 'dark' : 'light');
 
   return (
     <TamaguiProvider
       config={config}
-      defaultTheme={colorScheme === 'dark' ? 'dark' : 'light'}
+      defaultTheme={theme}
       {...rest}
     >
       <ToastProvider

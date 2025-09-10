@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { withTamagui } = require('@tamagui/next-plugin');
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { join } = require('node:path');
 
 const boolVals = {
@@ -26,13 +24,8 @@ const plugins = [
         return true;
       }
     },
-    excludeReactNativeWebExports: [
-      'Switch',
-      'ProgressBar',
-      'Picker',
-      'CheckBox',
-      'Touchable',
-    ],
+    disableThemesBundleOptimize: true,
+    excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
   }),
 ];
 
@@ -41,12 +34,6 @@ module.exports = () => {
   let config = {
     typescript: {
       ignoreBuildErrors: true,
-    },
-    modularizeImports: {
-      '@tamagui/lucide-icons': {
-        transform: `@tamagui/lucide-icons/dist/esm/icons/{{kebabCase member}}`,
-        skipDefaultConversion: true,
-      },
     },
     transpilePackages: [
       'solito',

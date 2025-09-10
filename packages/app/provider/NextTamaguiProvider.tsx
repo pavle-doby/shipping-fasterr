@@ -6,26 +6,28 @@ import '@tamagui/font-inter/css/700.css';
 import '@tamagui/polyfill-dev';
 
 import type { ReactNode } from 'react';
-import { StyleSheet } from 'react-native';
 import { useServerInsertedHTML } from 'next/navigation';
-import { NextThemeProvider, useRootTheme, ColorScheme } from '@tamagui/next-theme';
+import { ColorScheme, NextThemeProvider, useRootTheme } from '@tamagui/next-theme';
 import { config } from '@my/ui';
 import { Provider } from 'app/provider';
+import { StyleSheet } from 'react-native';
 
 export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useRootTheme();
+  const [theme, setTheme] = useRootTheme({ fallback: 'dark' });
 
   useServerInsertedHTML(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    // @ts-ignore
     const rnwStyle = StyleSheet.getSheet();
     return (
       <>
+        <link
+          rel="stylesheet"
+          href="/tamagui.css"
+        />
         <style
           dangerouslySetInnerHTML={{ __html: rnwStyle.textContent }}
           id={rnwStyle.id}
         />
-
         <style
           dangerouslySetInnerHTML={{
             // the first time this runs you'll get the full CSS including all themes
@@ -37,8 +39,6 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         <style
           dangerouslySetInnerHTML={{
             __html: config.getCSS({
-              // if you are using "outputCSS" option, you should use this "exclude"
-              // if not, then you can leave the option out
               exclude: process.env.NODE_ENV === 'production' ? 'design-system' : null,
             }),
           }}
@@ -50,13 +50,6 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
             __html: `document.documentElement.classList.add('t_unmounted')`,
           }}
         />
-
-        {/* eslint-disable-next-line react/no-unknown-property */}
-        <style jsx global>{`
-          html {
-            font-family: 'Inter';
-          }
-        `}</style>
       </>
     );
   });
@@ -68,9 +61,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         setTheme(next as ColorScheme);
       }}
     >
-      <Provider disableRootThemeClass defaultTheme={theme}>
-        {children}
-      </Provider>
+      <Provider defaultTheme={theme}>{children}</Provider>
     </NextThemeProvider>
   );
 };

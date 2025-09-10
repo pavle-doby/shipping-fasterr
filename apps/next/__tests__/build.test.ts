@@ -9,8 +9,7 @@ afterAll(() => {
     try {
       process.kill(buildProcess.pid, 0); // Check if process exists
       process.kill(buildProcess.pid); // Kill the process if it exists
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
+    } catch (_error) {
       // Process doesn't exist or we don't have permission to kill it
       console.info('Process already terminated or cannot be killed.');
     }
@@ -58,6 +57,9 @@ test('Next.js build completes', async () => {
     expect(result).toContain('○ /');
     expect(result).toContain('○ /_not-found');
     expect(result).toContain('ƒ /user/[id]');
+
+    // Check for chunk information
+    expect(result).toContain('chunks');
 
     // Check for static and dynamic route indicators
     expect(result).toContain('○  (Static)   prerendered as static content');

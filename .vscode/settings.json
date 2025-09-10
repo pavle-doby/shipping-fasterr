@@ -4,25 +4,29 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  // "editor.formatOnSave": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": "always"
-  // },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "cSpell.words": ["Tamagui"]
 }

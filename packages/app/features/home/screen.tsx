@@ -2,24 +2,20 @@ import {
   Anchor,
   Button,
   Paragraph,
-  Separator,
   Sheet,
   useToastController,
-  SwitchThemeButton,
-  SwitchThemeButtonNative,
   XStack,
   YStack,
   SizableText,
+  SwitchThemeToggle,
+  Separator,
 } from '@my/ui';
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
 import { useState } from 'react';
-import { Platform } from 'react-native';
 import { useLink } from 'solito/navigation';
 
 export function HomeScreen() {
-  const linkProps = useLink({
-    href: `/user/pavle`,
-  });
+  const linkProps = useLink({ href: `/user/pavle` });
 
   return (
     <YStack
@@ -39,30 +35,40 @@ export function HomeScreen() {
         fw="wrap"
         $sm={{ pos: 'relative', t: 0 }}
       >
-        {Platform.OS === 'web' && <SwitchThemeButton />}
-        {Platform.OS !== 'web' && <SwitchThemeButtonNative />}
+        <SwitchThemeToggle />
       </XStack>
 
       <YStack gap="$4">
-        <Paragraph fontWeight={'600'} ta="center">
+        <Paragraph
+          fontWeight={'600'}
+          ta="center"
+        >
           Welcome to
         </Paragraph>
         <YStack>
           <SizableText
             ta="center"
             fontWeight={'700'}
-            fontSize={'$10'}
-            lineHeight={'$10'}
+            fontSize={'$8'}
+            lineHeight={'$8'}
             color={'$primary'}
+            $gtSm={{
+              fontSize: '$10',
+              lineHeight: '$10',
+            }}
           >
             Shipping
           </SizableText>
           <SizableText
             ta="center"
             fontWeight={'700'}
-            fontSize={'$10'}
-            lineHeight={'$10'}
+            fontSize={'$8'}
+            lineHeight={'$8'}
             color={'$accent'}
+            $gtSm={{
+              fontSize: '$10',
+              lineHeight: '$10',
+            }}
           >
             Fasterr
           </SizableText>
@@ -77,7 +83,7 @@ export function HomeScreen() {
         <Separator />
       </YStack>
 
-      <Button {...linkProps}>Link to user</Button>
+      <Button {...linkProps}>Profile</Button>
 
       <SheetDemo />
     </YStack>
@@ -98,7 +104,7 @@ function SheetDemo() {
         icon={open ? ChevronDown : ChevronUp}
         onPress={() => setOpen((x) => !x)}
       >
-        Sheet
+        Quick Info
       </Button>
       <Sheet
         modal
@@ -115,11 +121,19 @@ function SheetDemo() {
           enterStyle={{ opacity: 0 }}
           exitStyle={{ opacity: 0 }}
         />
-        <Sheet.Handle bg="$gray8" />
-        <Sheet.Frame ai="center" jc="center" gap="$2">
+        <Sheet.Handle bg="$neutral-600" />
+        <Sheet.Frame
+          ai="center"
+          jc="center"
+          gap="$2"
+        >
           <XStack gap="$2">
             <Paragraph ta="center">Made by</Paragraph>
-            <Anchor col="$info" href="https://x.com/pavle_doby" target="_blank">
+            <Anchor
+              color="$info"
+              href="https://x.com/pavle_doby"
+              target="_blank"
+            >
               @pavle_doby,
             </Anchor>
             <Anchor
@@ -138,7 +152,7 @@ function SheetDemo() {
             icon={ChevronDown}
             onPress={() => {
               setOpen(false);
-              toast.show('Sheet closed!', {
+              toast.show('Quick Info closed!', {
                 message: 'Just showing how toast works...',
               });
             }}

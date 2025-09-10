@@ -1,55 +1,13 @@
 import { createTamagui } from 'tamagui';
-import { createInterFont } from '@tamagui/font-inter';
 import { shorthands } from '@tamagui/shorthands';
-import { animations } from '@my/ui/src/animations';
 import { CUSTOM_TOKENS } from './tokens';
 import { DARK_THEME, LIGHT_THEME } from './theme';
-
-const headingFont = createInterFont({
-  size: {
-    6: 15,
-  },
-  transform: {
-    6: 'uppercase',
-    7: 'none',
-  },
-  weight: {
-    6: '400',
-    7: '700',
-  },
-  color: {
-    6: '$colorFocus',
-    7: '$color',
-  },
-  letterSpacing: {
-    5: 2,
-    6: 1,
-    7: 0,
-    8: -1,
-    9: -2,
-    10: -3,
-    12: -4,
-    14: -5,
-    15: -6,
-  },
-  face: {
-    700: { normal: 'InterBold' },
-  },
-});
-
-const bodyFont = createInterFont(
-  {
-    face: {
-      700: { normal: 'InterBold' },
-    },
-  },
-  {
-    sizeSize: (size) => Math.round(size * 1.1),
-    sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
-  }
-);
+import { animations } from './animations';
+import { bodyFont, headingFont } from './fonts';
+import { defaultConfig } from '@tamagui/config/v4';
 
 export const config = createTamagui({
+  ...defaultConfig,
   defaultFont: 'body',
   animations,
   shouldAddPrefersColorThemes: true,
@@ -68,11 +26,17 @@ export const config = createTamagui({
   settings: {
     allowedStyleValues: 'somewhat-strict',
   },
-  themes: {
-    light: LIGHT_THEME,
-    dark: DARK_THEME,
-  },
   tokens: CUSTOM_TOKENS,
+  themes: {
+    light: {
+      ...defaultConfig.themes.light,
+      ...LIGHT_THEME,
+    },
+    dark: {
+      ...defaultConfig.themes.dark,
+      ...DARK_THEME,
+    },
+  },
   media: {
     xs: { maxWidth: 660 },
     sm: { maxWidth: 800 },
@@ -80,12 +44,20 @@ export const config = createTamagui({
     lg: { maxWidth: 1280 },
     xl: { maxWidth: 1420 },
     xxl: { maxWidth: 1600 },
+
     gtXs: { minWidth: 660 + 1 },
     gtSm: { minWidth: 800 + 1 },
     gtMd: { minWidth: 1020 + 1 },
     gtLg: { minWidth: 1280 + 1 },
+
+    // TODO@media: Set this properly
+    aboveMobile: { minWidth: 660 },
+    aboveTablet: { minWidth: 800 },
+    aboveLaptop: { minWidth: 1020 },
+
     short: { maxHeight: 820 },
     tall: { minHeight: 820 },
+
     hoverNone: { hover: 'none' },
     pointerCoarse: { pointer: 'coarse' },
   },

@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// TODO: Create better setup for the server
+// // TODO: Create better setup for the server
 const app: Express = express();
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.SERVER_PORT || 7007;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('De si bate!');
