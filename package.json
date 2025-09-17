@@ -1,11 +1,7 @@
 {
   "name": "shipping-fasterr",
   "private": true,
-  "workspaces": [
-    "./apps/*",
-    "./packages/*",
-    "./services"
-  ],
+  "workspaces": ["./apps/*", "./packages/*", "./services"],
   "scripts": {
     "native": "cd apps/expo && yarn start",
     "native:prebuild": "cd apps/expo && yarn prebuild",
@@ -57,8 +53,6 @@
     "lint-staged": "^16.1.6"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,json,css,md}": [
-      "yarn exec biome check --write"
-    ]
+    "*.{js,ts,jsx,tsx,json,css,md}": ["yarn exec biome check --write"]
   }
 }

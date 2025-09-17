@@ -12,7 +12,7 @@ const router = express.Router();
 // GET /users/self → fetch current user
 router.get(
   '/self',
-  asyncHandler(async (req: Request, res: Response) => {
+  asyncHandler(async (_req: Request, res: Response) => {
     const user = await UserModel.findOne({ supabaseId: res.locals?.user?.id || '' });
 
     if (!user) {

@@ -5,7 +5,7 @@
 export function safeStringify(data: unknown): string | null {
   try {
     return JSON.stringify(data);
-  } catch (error) {
+  } catch (_error) {
     return null;
   }
 }

@@ -7,7 +7,7 @@ import { safeStringify } from 'services/utils/safeStringify';
 /**
  * Middleware to handle not found endpoints
  */
-export const handleErrorNotFound = (req: Request, res: Response, next: NextFunction) => {
+export const handleErrorNotFound = (_req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json(new ResError({ message: ErrorMessage.NOT_FOUND_ENDPOINT }));
 };
 
@@ -16,7 +16,7 @@ export const handleErrorNotFound = (req: Request, res: Response, next: NextFunct
  *
  * @param next - If removed as param `errorMiddleware` will not be called
  */
-export function handleError(err: any, req: Request, res: Response, next: NextFunction) {
+export function handleError(err: any, _req: Request, res: Response, _next: NextFunction) {
   let errMessage: string =
     (typeof err.message !== 'string' && safeStringify(err.message)) ||
     err.message ||

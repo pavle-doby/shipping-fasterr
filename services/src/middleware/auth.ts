@@ -26,7 +26,7 @@ export async function handleAuth(req: Request, res: Response, next: NextFunction
     res.locals.user = data.user;
 
     next();
-  } catch (err) {
+  } catch (_err) {
     res.status(500).json(new ResError({ message: ErrorMessage.AUTH_CHECK_FAILED }));
     return;
   }
