@@ -11,11 +11,8 @@
       ".vscode",
       "**/tamagui.css",
       "**/*.d.ts",
-      "packages/vendor/**",
-      "packages/**/vendor/**",
       "**/tsconfig.json",
       "**/dist/**",
-      "**/package.json",
       ".codesandbox",
       "tsconfig.base.json"
     ],
@@ -92,7 +89,6 @@
       "**/*.d.ts",
       "**/tsconfig.json",
       "**/dist/**",
-      "**/package.json",
       ".codesandbox",
       "tsconfig.base.json"
     ]
